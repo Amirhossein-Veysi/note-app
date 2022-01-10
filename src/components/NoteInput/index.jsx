@@ -15,6 +15,14 @@ const NoteInput = ({ addNotes }) => {
     setInpText(event.target.value);
   };
 
+  const handleAddClick = () => {
+    const d = new Date();
+    const date = `${d.getFullYear()}/${
+      d.getMonth() + 1
+    }/${d.getDate()} -- ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+    addNotes(inpText, date, inpColor);
+  };
+
   return (
     <React.Fragment>
       <div className="d-flex add-form align-items-center">
@@ -26,10 +34,7 @@ const NoteInput = ({ addNotes }) => {
           value={inpText}
           onChange={handleInpChange}
         />
-        <button
-          className="btn btn-primary mt-5 ms-4"
-          onClick={() => addNotes(inpText, Date.now(), inpColor)}
-        >
+        <button className="btn btn-primary mt-5 ms-4" onClick={handleAddClick}>
           Add
         </button>
       </div>
