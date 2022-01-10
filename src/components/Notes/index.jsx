@@ -10,9 +10,14 @@ const Notes = () => {
   const [notes, setNotes] = useState(loadLocalStorage());
 
   const handleAddNote = (text, time, color) => {
-    console.log(text, time, color);
     const obj = { text, time, color };
     const cnotes = [...notes, obj];
+    setNotes(cnotes);
+  };
+
+  const handleDeleteNote = (note) => {
+    const cnotes = [];
+    notes.map((el) => el !== note && cnotes.push(el));
     setNotes(cnotes);
   };
 
@@ -29,7 +34,9 @@ const Notes = () => {
             You Don't Have Any Note Yet!
           </p>
         ) : (
-          notes.map((note) => <Note note={note} />)
+          notes.map((note) => (
+            <Note note={note} deleteNote={handleDeleteNote} />
+          ))
         )}
       </div>
     </div>
