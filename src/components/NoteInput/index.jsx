@@ -23,6 +23,7 @@ const NoteInput = () => {
           type="text"
           className="form-control mt-5"
           style={{ background: inpColor }}
+          placeholder="Enter your note"
         />
         <button className="btn btn-primary mt-5 ms-4">Add</button>
       </div>
