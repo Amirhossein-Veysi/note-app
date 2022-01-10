@@ -6,8 +6,8 @@ const Note = ({ note }) => {
   return (
     <div className="col-6 col-md-4 col-lg-3 mt-3">
       <div className="card p-4" style={{ background: color }}>
-        <p className="text-secondary">{text}</p>
-        <span>{time}</span>
+        <p className="h5 text-secondary">{text}</p>
+        <span style={{ fontSize: 14 }}>{time}</span>
       </div>
     </div>
   );
